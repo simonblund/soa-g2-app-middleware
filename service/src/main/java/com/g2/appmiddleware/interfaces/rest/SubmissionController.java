@@ -31,17 +31,6 @@ public class SubmissionController {
     }
 
 
-    @PostMapping(UrlPaths.SUBMISSION_RESOURCE)
-    public ResponseEntity<Void> create(SubmissionRequest request){
-
-        try {
-            val submission = service.create(request);
-            return ResponseEntity.status(200).build();
-        }catch (Exception e){
-            throw e;
-        }
-    }
-
     @PostMapping(UrlPaths.SUBMISSION_VERIFY)
     public ResponseEntity<SubmissionResponse> verify(SubmissionVerificationRequest request){
 
