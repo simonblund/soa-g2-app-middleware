@@ -6,6 +6,7 @@ import com.g2.appmiddleware.api.rest.submission.SubmissionResponse;
 import com.g2.appmiddleware.application.SubmissionService;
 import com.g2.appmiddleware.infrastructure.rest.ESSubmissionClient;
 import com.g2.appmiddleware.infrastructure.rest.StudentServiceClient;
+import com.g2.examinationservice.api.rest.submission.SubmissionVerificationRequest;
 import com.g2.studentservice.api.rest.StudentResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -41,6 +42,11 @@ public class SubmissionServiceImpl implements SubmissionService {
                             .build());
                 });
         return SubmissionCollectionResponse.builder().submissions(submissions).build();
+    }
+
+    public void verify(String submissionId){
+
+        submissionClient.verify(SubmissionVerificationRequest.builder().submissionId(submissionId).build());
     }
 
     private StudentResponse getStudent(String studentUser){

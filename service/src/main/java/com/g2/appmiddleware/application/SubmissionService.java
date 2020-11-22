@@ -5,7 +5,7 @@ import com.g2.appmiddleware.api.rest.submission.SubmissionCollectionResponse;
 public interface SubmissionService {
 
     SubmissionCollectionResponse getSubmissionsForExam(String examinationCode);
-
+    void verify(String submissionId);
 
    /*
    CourseCollectionResponse getAllCourses();

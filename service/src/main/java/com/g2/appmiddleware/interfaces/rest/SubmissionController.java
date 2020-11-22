@@ -2,11 +2,14 @@ package com.g2.appmiddleware.interfaces.rest;
 
 import com.g2.appmiddleware.api.rest.UrlPaths;
 import com.g2.appmiddleware.api.rest.submission.SubmissionCollectionResponse;
+import com.g2.appmiddleware.api.rest.submission.SubmissionResponse;
+import com.g2.appmiddleware.api.rest.submission.SubmissionVerificationRequest;
 import com.g2.appmiddleware.application.SubmissionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,6 +21,19 @@ public class SubmissionController {
     public ResponseEntity<SubmissionCollectionResponse> getSubmissionsForExamination(@PathVariable String examinationCode) {
         return ResponseEntity.ok(service.getSubmissionsForExam(examinationCode));
     }
+
+    @PostMapping(UrlPaths.SUBMISSION_VERIFY)
+    public ResponseEntity<Void> verify(SubmissionVerificationRequest request){
+
+        try {
+            service.verify(request.getSubmissionId());
+            return ResponseEntity.ok(null);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+
 /*
     @GetMapping(UrlPaths.COURSE_RESOURCE)
     public ResponseEntity<CourseCollectionResponse> getAllCourses(){
@@ -31,16 +47,7 @@ public class SubmissionController {
     }
 
 
-    @PostMapping(UrlPaths.SUBMISSION_VERIFY)
-    public ResponseEntity<SubmissionResponse> verify(SubmissionVerificationRequest request){
 
-        try {
-            val submission = service.verify(request.getSubmissionId());
-            return ResponseEntity.ok(DomainObjectMapper.toSubmissionResponse(submission));
-        }catch (Exception e){
-            throw e;
-        }
-    }
 
 
      */
