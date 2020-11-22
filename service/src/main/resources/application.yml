@@ -1,5 +1,6 @@
-url: localhost:8080
-
+url: localhost:8085
+server:
+  port: 8085
 spring:
   datasource:
     url: jdbc:h2:mem:testdb
@@ -14,4 +15,6 @@ integration:
       url: http://localhost:8282
     student-service:
       url: http://localhost:8083
+    examination-service:
+      url: http://localhost:8080
   db-enabled: false
