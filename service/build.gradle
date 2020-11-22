@@ -5,7 +5,7 @@ plugins {
 
 dependencies {
     //OWN DEPENDENCIES
-    implementation 'com.g2.studentservice:api:1.0.105'
+    implementation 'com.g2.studentservice:api:1.0.108'
     implementation 'com.g2.examinationservice:api:1.0.7'
 
     //NOT OWN
