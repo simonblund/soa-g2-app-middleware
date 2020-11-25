@@ -39,6 +39,7 @@ public class SubmissionServiceImpl implements SubmissionService {
                             .moduleCode(it.getModuleCode())
                             .submissionId(it.getSubmissionId())
                             .grade(Grade.valueOf(it.getGrade().name()))
+                            .verified(it.isVerified())
                             .build());
                 });
         return SubmissionCollectionResponse.builder().submissions(submissions).build();
