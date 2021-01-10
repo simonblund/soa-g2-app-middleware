@@ -1,6 +1,6 @@
-url: localhost:8085
+url: localhost:8086
 server:
-  port: 8085
+  port: 8086
 
 # Logging to stdout for development. Note: empty strings are significant.
   tomcat:
@@ -28,6 +28,10 @@ integration:
       url: http://localhost:8083
     examination-service:
       url: http://localhost:8080
+    course-service:
+      url: http://localhost:8084
+    schedule-service:
+      url: http://localhost:8085
   db-enabled: false
 
 #logging:

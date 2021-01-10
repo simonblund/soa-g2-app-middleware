@@ -7,6 +7,8 @@ dependencies {
     //OWN DEPENDENCIES
     implementation 'com.g2.studentservice:api:1.0.108'
     implementation 'com.g2.examinationservice:api:1.0.7'
+    implementation 'com.g2.courseservice:api:1.0.18'
+    implementation 'com.g2.scheduleservice:api:1.0.9'
 
     //NOT OWN
     implementation 'org.springframework.boot:spring-boot-starter'
