@@ -6,6 +6,8 @@ import com.g2.scheduleservice.api.rest.resource.BookingResponse;
 import com.g2.scheduleservice.api.rest.resource.ResourceResponse;
 import com.g2.scheduleservice.api.rest.resource.RoomResponse;
 import com.g2.scheduleservice.api.rest.schedule.CourseOccasionScheduleResponse;
+import com.g2.scheduleservice.api.rest.schedule.ReservationRequest;
+import com.g2.scheduleservice.api.rest.schedule.ReservationResponse;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -40,8 +42,8 @@ public class ScheduleController {
             description = "Can be sent in multiple times per course occasion. ONLY fields in reservation object need to be filled in.")
 
     @CrossOrigin(origins = "*")
-    @PostMapping(UrlPaths.GET_OCCASION_SCHEDULE)
-    ResponseEntity<CourseOccasionScheduleResponse> saveToCanvas(@PathVariable long courseOccasionId, @RequestHeader("CanvasToken") String canvasToken, @RequestHeader("CanvasUser") int canvasUser, @RequestBody CourseOccasionScheduleResponse request){
+    @PostMapping(GET_OCCASION_SCHEDULE)
+    ResponseEntity<ReservationResponse> saveToCanvas(@PathVariable long courseOccasionId, @RequestHeader("CanvasToken") String canvasToken, @RequestHeader("CanvasUser") int canvasUser, @RequestBody ReservationRequest request){
         log.info("A POST request to {} has arrived with courseOccasionId {}", UrlPaths.GET_COURSE_INSTANCE, courseOccasionId);
         return scheduleServiceClient.saveToCanvas(courseOccasionId, canvasToken, canvasUser, request);
 
